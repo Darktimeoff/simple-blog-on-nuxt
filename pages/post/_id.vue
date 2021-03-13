@@ -31,7 +31,10 @@
             <p>Lorem ipsum dolor sit amet consectetur adipis</p>
         </main>
         <footer>
-            <AppCommentForm />
+            <AppCommentForm
+                v-if="canAddComment"
+                @created="onCreateCommentHandler"
+             />
             
             <div class="comments" v-if="false">
                 <AppComment 
@@ -54,8 +57,17 @@ export default {
         AppCommentForm,
     },
     validate({params}) {
-        console.log(Boolean(+params.id))
         return Boolean(params.id) && Boolean(+params.id);
+    },
+    data() {
+        return {
+            canAddComment: true,
+        }
+    },
+    methods: {
+        onCreateCommentHandler() {
+            this.canAddComment = false;
+        }
     }
 }
 </script>

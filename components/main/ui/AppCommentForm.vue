@@ -21,6 +21,7 @@
             <el-button 
                 type="primary" 
                 native-type="submit"
+                :loading="loading"
                 round
             >Добавить Комметарий</el-button>
         </el-form-item>
@@ -30,6 +31,7 @@
 export default {
     data() {
         return {
+            loading: false,
             сontrols: {
                 name: '',
                 text: '',
@@ -58,7 +60,22 @@ export default {
     methods: {
         onSubmit() {
             if(!this.isFormValid) return;
-            
+            this.loading = true;
+
+            const formData = {
+                name: this.сontrols.name,
+                text: this.сontrols.text,
+                postId: '',
+            }
+
+            try {
+                setTimeout(() => {
+                    this.$message.success('Комметарий успешно добавлен');
+                    this.$emit('created');
+                }, 2000)
+            } catch(e) {
+                this.loading = false;
+            }
         }
     }
 }
