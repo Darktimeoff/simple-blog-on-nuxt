@@ -57,13 +57,9 @@ export default {
     },
     computed: {
         isFormValid() {
-            let isValid = true;
-
             this.$refs['form'].validate((valid) => {
-                isValid = valid && isValid;
-            });
-
-            return isValid;
+                return valid
+            })
         }
     },
     methods: {

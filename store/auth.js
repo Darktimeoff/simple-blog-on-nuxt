@@ -29,6 +29,14 @@ export const actions = {
     async logout({commit}) {
         commit('setToken', null)
     },
+    async createUser({commit}, formData) {
+        try {
+            console.log(formData)
+        } catch (err) {
+            commit('setError', err, {root: true});
+            throw err;
+        }
+    },
     setToken({commit}, token) {
         commit('setToken', token)
     }

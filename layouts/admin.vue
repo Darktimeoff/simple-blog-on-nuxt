@@ -13,7 +13,17 @@
 <script>
 import AppAside from '@/components/admin/AppAside.vue'
 export default {
-    components: {AppAside}
+    components: {AppAside},
+    computed: {
+        error() {
+            return this.$store.getters.error;
+        }
+    },
+    watch: {
+        error(value) {
+            this.$message.error(value);
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
