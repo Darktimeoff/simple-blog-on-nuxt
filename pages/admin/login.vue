@@ -83,6 +83,13 @@ export default {
                 this.loading = false;
             }
         }
+    },
+    mounted() {
+        const message = this.$route.query?.message;
+
+        if(message === 'login') {
+            this.$message.warning('Пожалуйста авторизируйтесь')
+        }
     }
 }
 </script>
