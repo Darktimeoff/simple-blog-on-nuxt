@@ -15,12 +15,19 @@ export const mutations = {
 
 export const actions = {
     async login({commit, dispatch}, loginData) {
-        const token = await new Promise((resolve, reject) => {
-            setTimeout(() => resolve('mock-token'), 2000)
-        })
-        
-        dispatch('setToken', token);
-        console.log('token:' + token)
+        try {
+            const token = await new Promise((resolve, reject) => {
+                setTimeout(() => resolve('mock-token'), 2000)
+            });
+            
+            dispatch('setToken', token);
+        } catch (err) {
+            commit('setError', err, {root: true})
+            throw err;
+        }
+    },
+    async logout({commit}) {
+        commit('setToken', null)
     },
     setToken({commit}, token) {
         commit('setToken', token)

@@ -90,6 +90,11 @@ export default {
         if(message === 'login') {
             this.$message.warning('Пожалуйста авторизируйтесь')
         }
+        
+        switch(message) {
+            case 'login':  this.$message.warning('Пожалуйста авторизируйтесь');break;
+            case 'logout': this.$message.success('Вы успешно вышли из системы');break;
+        }
     }
 }
 </script>
