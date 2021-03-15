@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <h1>SSG Blog</h1>
+        <nuxt-link to="/">SSG Blog</nuxt-link>
     </nav>
 </template>
 <style lang="scss" scoped>

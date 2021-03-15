@@ -8,7 +8,7 @@
             <i class="el-icon-menu"></i>
             <span>Aналитика</span>
         </el-menu-item>
-        <el-menu-item index="/admin/сreate/">
+        <el-menu-item index="/admin/create/">
             <i class="el-icon-edit-outline"></i>
             <span>Создать</span>
         </el-menu-item>
